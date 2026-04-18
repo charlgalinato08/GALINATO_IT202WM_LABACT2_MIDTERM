@@ -4,12 +4,7 @@ using System.Drawing;
 
 namespace HospitalManagementSystem
 {
-    // =====================================================================
-    // DoctorForm.cs — CHILD FORM #2
-    //
-    // Fields required by the assignment:
-    //   Doctor Name | Specialization
-    // =====================================================================
+   
 
     public class DoctorForm : Form
     {
@@ -30,7 +25,7 @@ namespace HospitalManagementSystem
 
         private void BuildControls()
         {
-            // ── Title ─────────────────────────────────────────────────────
+            
             lblTitle = new Label
             {
                 Text      = "🩺  Doctor Profile",
@@ -40,7 +35,7 @@ namespace HospitalManagementSystem
                 Size      = new Size(340, 30)
             };
 
-            // ── Doctor Name ───────────────────────────────────────────────
+            
             lblName = new Label
             {
                 Text     = "Doctor Name:",
@@ -53,7 +48,7 @@ namespace HospitalManagementSystem
                 Size     = new Size(220, 22)
             };
 
-            // ── Specialization (ComboBox = dropdown) ──────────────────────
+            
             lblSpecialization = new Label
             {
                 Text     = "Specialization:",
@@ -68,7 +63,7 @@ namespace HospitalManagementSystem
                 DropDownStyle = ComboBoxStyle.DropDownList // force selection from list
             };
 
-            // Add common hospital specializations to the dropdown
+            
             cmbSpecialization.Items.AddRange(new string[]
             {
                 "General Medicine",
@@ -83,7 +78,7 @@ namespace HospitalManagementSystem
                 "Psychiatry"
             });
 
-            // ── Buttons ───────────────────────────────────────────────────
+           
             btnSave = new Button
             {
                 Text      = "Save Profile",
@@ -106,7 +101,7 @@ namespace HospitalManagementSystem
             };
             btnClear.Click += BtnClear_Click;
 
-            // ── Add to form ───────────────────────────────────────────────
+            
             this.Controls.AddRange(new Control[]
             {
                 lblTitle,
