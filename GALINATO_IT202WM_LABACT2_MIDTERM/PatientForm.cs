@@ -4,27 +4,17 @@ using System.Drawing;
 
 namespace HospitalManagementSystem
 {
-    // =====================================================================
-    // PatientForm.cs — CHILD FORM #1
-    //
-    // A child form is a normal Form, EXCEPT we set MdiParent = dashboard
-    // before calling Show(), so it floats INSIDE the dashboard window.
-    //
-    // Fields required by the assignment:
-    //   Patient Name | Age | Address | Diagnosis
-    // =====================================================================
+   
 
     public class PatientForm : Form
     {
-        // ── Controls ──────────────────────────────────────────────────────
+        
         private Label  lblTitle;
         private Label  lblName, lblAge, lblAddress, lblDiagnosis;
         private TextBox txtName, txtAge, txtAddress, txtDiagnosis;
         private Button btnSave, btnClear;
 
-        // ------------------------------------------------------------------
-        // Constructor
-        // ------------------------------------------------------------------
+       
         public PatientForm()
         {
             this.Text        = "Patient Record";
@@ -35,12 +25,10 @@ namespace HospitalManagementSystem
             BuildControls(); // set up all textboxes and labels
         }
 
-        // ------------------------------------------------------------------
-        // Build the form layout in code (no designer needed)
-        // ------------------------------------------------------------------
+        
         private void BuildControls()
         {
-            // ── Title label ───────────────────────────────────────────────
+            
             lblTitle = new Label
             {
                 Text      = "🏥  Patient Information",
@@ -50,19 +38,19 @@ namespace HospitalManagementSystem
                 Size      = new Size(360, 30)
             };
 
-            // ── Patient Name ──────────────────────────────────────────────
+           
             lblName = MakeLabel("Patient Name:", 60);
             txtName = MakeTextBox(60);
 
-            // ── Age ───────────────────────────────────────────────────────
+            
             lblAge = MakeLabel("Age:", 110);
             txtAge = MakeTextBox(110);
 
-            // ── Address ───────────────────────────────────────────────────
+            
             lblAddress = MakeLabel("Address:", 160);
             txtAddress = MakeTextBox(160);
 
-            // ── Diagnosis ─────────────────────────────────────────────────
+            
             lblDiagnosis = MakeLabel("Diagnosis:", 210);
             txtDiagnosis = new TextBox
             {
@@ -71,7 +59,7 @@ namespace HospitalManagementSystem
                 Multiline = true  // allows multiple lines for longer diagnoses
             };
 
-            // ── Buttons ───────────────────────────────────────────────────
+            
             btnSave = new Button
             {
                 Text      = "Save Record",
@@ -94,7 +82,7 @@ namespace HospitalManagementSystem
             };
             btnClear.Click += BtnClear_Click;
 
-            // ── Add all controls to the form ──────────────────────────────
+            
             this.Controls.AddRange(new Control[]
             {
                 lblTitle,
@@ -106,13 +94,11 @@ namespace HospitalManagementSystem
             });
         }
 
-        // ------------------------------------------------------------------
-        // Button events
-        // ------------------------------------------------------------------
+       
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            // Basic validation — make sure name is not empty
+          
             if (string.IsNullOrWhiteSpace(txtName.Text))
             {
                 MessageBox.Show("Please enter the patient's name.", "Validation",
@@ -120,7 +106,7 @@ namespace HospitalManagementSystem
                 return;
             }
 
-            // Show confirmation (in a real app you would save to a database)
+           
             MessageBox.Show(
                 $"Patient record saved!\n\n" +
                 $"Name: {txtName.Text}\n" +
@@ -135,7 +121,7 @@ namespace HospitalManagementSystem
 
         private void BtnClear_Click(object sender, EventArgs e)
         {
-            // Reset all fields
+            
             txtName.Clear();
             txtAge.Clear();
             txtAddress.Clear();
@@ -143,11 +129,9 @@ namespace HospitalManagementSystem
             txtName.Focus(); // move cursor back to the first field
         }
 
-        // ------------------------------------------------------------------
-        // Helper methods — avoid repeating the same label/textbox setup code
-        // ------------------------------------------------------------------
+        
 
-        /// <summary>Creates a standard label at a given Y position.</summary>
+       
         private Label MakeLabel(string text, int y)
         {
             return new Label
@@ -159,7 +143,7 @@ namespace HospitalManagementSystem
             };
         }
 
-        /// <summary>Creates a standard single-line TextBox at a given Y position.</summary>
+       
         private TextBox MakeTextBox(int y)
         {
             return new TextBox
