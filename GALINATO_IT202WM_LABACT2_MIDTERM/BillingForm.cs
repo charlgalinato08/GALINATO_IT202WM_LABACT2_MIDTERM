@@ -4,12 +4,7 @@ using System.Drawing;
 
 namespace HospitalManagementSystem
 {
-    // =====================================================================
-    // BillingForm.cs — CHILD FORM #3
-    //
-    // Fields required by the assignment:
-    //   Patient Name | Amount | Payment Status
-    // =====================================================================
+   
 
     public class BillingForm : Form
     {
@@ -30,7 +25,7 @@ namespace HospitalManagementSystem
 
         private void BuildControls()
         {
-            // ── Title ─────────────────────────────────────────────────────
+            
             lblTitle = new Label
             {
                 Text      = "💳  Billing Record",
@@ -40,7 +35,7 @@ namespace HospitalManagementSystem
                 Size      = new Size(340, 30)
             };
 
-            // ── Patient Name ──────────────────────────────────────────────
+           
             lblPatientName = new Label
             {
                 Text     = "Patient Name:",
@@ -53,7 +48,7 @@ namespace HospitalManagementSystem
                 Size     = new Size(220, 22)
             };
 
-            // ── Amount ────────────────────────────────────────────────────
+            
             lblAmount = new Label
             {
                 Text     = "Amount (₱):",
@@ -66,7 +61,7 @@ namespace HospitalManagementSystem
                 Size     = new Size(220, 22)
             };
 
-            // ── Payment Status ────────────────────────────────────────────
+           
             lblStatus = new Label
             {
                 Text     = "Payment Status:",
@@ -81,7 +76,7 @@ namespace HospitalManagementSystem
             };
             cmbStatus.Items.AddRange(new string[] { "Pending", "Paid", "Partial", "Insurance" });
 
-            // ── Buttons ───────────────────────────────────────────────────
+           
             btnSave = new Button
             {
                 Text      = "Save Record",
@@ -116,7 +111,7 @@ namespace HospitalManagementSystem
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            // Validate patient name
+            
             if (string.IsNullOrWhiteSpace(txtPatientName.Text))
             {
                 MessageBox.Show("Please enter the patient's name.", "Validation",
@@ -124,7 +119,7 @@ namespace HospitalManagementSystem
                 return;
             }
 
-            // Validate amount — must be a valid number
+         
             if (!decimal.TryParse(txtAmount.Text, out decimal amount))
             {
                 MessageBox.Show("Please enter a valid amount (numbers only).", "Validation",
